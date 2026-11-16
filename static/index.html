@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinNSA - Terminal GUI v2.0</title>
+    <link rel="stylesheet" href="/static/styles.css?v=7">
+    <link rel="stylesheet" href="/static/theme90s.css?v=2">
+    <link rel="stylesheet" href="/static/header.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body class="terminal-body">
+
+    <!-- Ambient Slow Particle Matrix Canvas Background -->
+    <canvas id="ambientCanvas"></canvas>
+
+    <!-- Main Terminal Window Frame GUI -->
+    <div class="terminal-window">
+
+        <!-- Terminal Window Titlebar Header -->
+        <div id="appHeader" data-page="board"></div>
+
+        <!-- Terminal Command Line Prompt Header -->
+        <div class="cli-header-panel">
+            <div class="cli-prompt-line">
+                <span class="prompt-user">user@finnsa-hft</span>:<span class="prompt-dir">~/stocks</span>$ <span class="prompt-cmd">./query_matrix --nifty50 --live-ticks</span>
+            </div>
+            <div class="cli-search-row">
+                <div class="search-prompt-wrapper">
+                    <span class="search-prompt-tag">SEARCH_TICKER [/] &gt;_</span>
+                    <input type="text" id="searchInput" class="cli-input" placeholder="Type symbol, company name, or sector (e.g. RELIANCE, IT)...">
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Terminal Content Layout -->
+        <main class="terminal-content">
+
+            <!-- Sector Quick Filter Navigation -->
+            <div class="sector-nav-box">
+                <span class="sector-nav-label">FILTER_SECTOR [ ] :</span>
+                <div class="sector-buttons" id="sectorChips">
+                    <button class="term-btn active" data-sector="ALL">[ALL_50]</button>
+                    <button class="term-btn" data-sector="Financials">[FINANCIALS]</button>
+                    <button class="term-btn" data-sector="IT">[IT]</button>
+                    <button class="term-btn" data-sector="Energy">[ENERGY]</button>
+                    <button class="term-btn" data-sector="Automobile">[AUTOMOBILE]</button>
+                    <button class="term-btn" data-sector="FMCG">[FMCG]</button>
+                    <button class="term-btn" data-sector="Healthcare">[HEALTHCARE]</button>
+                    <button class="term-btn" data-sector="Metals">[METALS]</button>
+                    <button class="term-btn" data-sector="Power">[POWER]</button>
+                </div>
+            </div>
+
+            <!-- 50 Nifty Stock Terminal Grid Table -->
+            <section class="term-box table-box">
+                <div class="box-titlebar">
+                    <span class="box-title">📊 NIFTY50_HFT_MATRIX_BOARD // Real-Time Order Stream</span>
+                    <span id="stockCountBadge" class="stock-badge-tag">[LOADED: 50/50]</span>
+                </div>
+
+                <div class="table-scroll-area">
+                    <table class="term-table">
+                        <thead>
+                            <tr>
+                                <th>TICKER / COMPANY</th>
+                                <th>SECTOR</th>
+                                <th class="text-right">PRICE (INR)</th>
+                                <th class="text-right">24H CHANGE</th>
+                                <th class="text-right">BID / ASK SPREAD</th>
+                                <th class="text-right">VOLUME</th>
+                                <th class="text-right">DAY RANGE</th>
+                                <th class="text-center">ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="stocksTableBody">
+                            <!-- Rows rendered via app.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+        
+        <!-- Terminal Footer Bar -->
+        <footer class="terminal-footer">
+            <span>FinNSA_TERMINAL v2.04 // PyTorch BCGF & Technical Fusion Engine</span>
+            <span id="footerMarketNote">NSE/BSE MARKET: CHECKING HOURS...</span>
+        </footer>
+
+    </div>
+
+    <!-- Terminal Order Execution Modal -->
+    <div id="tradingModal" class="modal-backdrop hidden">
+        <div class="modal-term-box">
+            <div class="modal-title-bar">
+                <span class="modal-title-txt">ORDER_EXECUTION_TICKET // <span id="modalStockName">RELIANCE.NS</span></span>
+                <button id="modalCloseBtn" class="term-close-btn">[X]</button>
+            </div>
+
+            <div class="modal-content-body">
+                <div class="order-side-toggle">
+                    <button id="tabBuy" class="order-tab buy active">[BUY_LONG]</button>
+                    <button id="tabSell" class="order-tab sell">[SELL_SHORT]</button>
+                </div>
+
+                <div class="modal-info-row">
+                    <span class="info-lbl">LAST TRADED PRICE:</span>
+                    <span id="modalLivePrice" class="info-val">₹2,985.40</span>
+                </div>
+
+                <div class="term-form-group">
+                    <label class="term-label">PRODUCT_TYPE:</label>
+                    <div class="term-radio-row">
+                        <label><input type="radio" name="product" value="delivery" checked> CNC (Delivery)</label>
+                        <label><input type="radio" name="product" value="intraday"> MIS (Intraday)</label>
+                    </div>
+                </div>
+
+                <div class="term-form-row">
+                    <div class="term-field">
+                        <label for="orderQty" class="term-label">QUANTITY (SHARES):</label>
+                        <input type="number" id="orderQty" class="term-input" value="10" min="1" max="10000">
+                    </div>
+                    <div class="term-field">
+                        <label for="orderPrice" class="term-label">LIMIT_PRICE (INR):</label>
+                        <input type="number" id="orderPrice" class="term-input" value="2985.40" step="0.05">
+                    </div>
+                </div>
+
+                <div class="modal-summary-box">
+                    <div class="summary-line">
+                        <span>TOTAL_ORDER_VALUE:</span>
+                        <strong id="summaryTotal">₹29,854.00</strong>
+                    </div>
+                    <div class="summary-line text-muted">
+                        <span>EXECUTION_FEE:</span>
+                        <span>₹0.00 (Zero Fee)</span>
+                    </div>
+                </div>
+
+                <div id="orderStatusMsg" class="modal-status-out"></div>
+
+                <button id="btnExecuteOrder" class="btn-execute-term buy">&gt;&gt; EXECUTE_BUY_ORDER &lt;&lt;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/ambient-canvas.js?v=1"></script>
+    <script src="/static/keys.js?v=1"></script>
+    <script src="/static/header.js?v=2"></script>
+    <script src="/static/tour.js?v=3"></script>
+    <script src="/static/app.js?v=9"></script>
+</body>
+</html>

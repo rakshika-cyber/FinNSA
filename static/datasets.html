@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinNSA - Datasets</title>
+    <link rel="stylesheet" href="/static/styles.css?v=7">
+    <link rel="stylesheet" href="/static/theme90s.css?v=2">
+    <link rel="stylesheet" href="/static/header.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body class="terminal-body">
+
+    <canvas id="ambientCanvas"></canvas>
+
+    <div class="terminal-window">
+
+        <div id="appHeader" data-page="datasets"></div>
+
+        <div class="cli-header-panel">
+            <div class="cli-prompt-line">
+                <span class="prompt-user">user@finnsa-hft</span>:<span class="prompt-dir">~/datasets</span>$ <span class="prompt-cmd">cat ./training_sources.json</span>
+            </div>
+        </div>
+
+        <main class="terminal-content">
+
+            <section class="term-box">
+                <div class="box-titlebar">
+                    <span class="box-title">📚 DATASET_REGISTRY // Sentiment &amp; NLP Training Sources</span>
+                    <span class="stock-badge-tag">[TOTAL: 3]</span>
+                </div>
+
+                <div class="dataset-list">
+
+                    <div class="dataset-row">
+                        <div class="dataset-idx">01</div>
+                        <div class="dataset-body">
+                            <div class="dataset-name">kdave/Indian_Financial_News</div>
+                            <div class="dataset-desc">Indian financial news corpus used for English/Hinglish sentiment fine-tuning.</div>
+                            <a class="dataset-link" href="https://huggingface.co/datasets/kdave/Indian_Financial_News" target="_blank" rel="noopener noreferrer">huggingface.co/datasets/kdave/Indian_Financial_News</a>
+                        </div>
+                    </div>
+
+                    <div class="dataset-row">
+                        <div class="dataset-idx">02</div>
+                        <div class="dataset-body">
+                            <div class="dataset-name">L3Cube-HingCorpus</div>
+                            <div class="dataset-desc">Large-scale Hindi-English code-mixed corpus used for Hinglish language modeling.</div>
+                            <a class="dataset-link" href="https://github.com/l3cube-pune/code-mixed-nlp" target="_blank" rel="noopener noreferrer">github.com/l3cube-pune/code-mixed-nlp</a>
+                        </div>
+                    </div>
+
+                    <div class="dataset-row">
+                        <div class="dataset-idx">03</div>
+                        <div class="dataset-body">
+                            <div class="dataset-name">NIFTY Financial News Headlines</div>
+                            <div class="dataset-desc">Nifty-linked financial news headline dataset used for market-moving sentiment signal alignment.</div>
+                            <a class="dataset-link" href="https://huggingface.co/datasets/raeidsaqur/NIFTY" target="_blank" rel="noopener noreferrer">huggingface.co/datasets/raeidsaqur/NIFTY</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="terminal-footer">
+            <span>FinNSA_TERMINAL v2.04 // PyTorch BCGF &amp; Technical Fusion Engine</span>
+            <span>DATASET_REGISTRY // 3 SOURCES LISTED</span>
+        </footer>
+
+    </div>
+
+    <script src="/static/ambient-canvas.js?v=1"></script>
+    <script src="/static/datasets.js?v=1"></script>
+    <script src="/static/keys.js?v=1"></script>
+    <script src="/static/header.js?v=2"></script>
+    <script src="/static/tour.js?v=3"></script>
+</body>
+</html>

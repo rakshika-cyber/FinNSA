@@ -1,0 +1,198 @@
+{
+  "RELIANCE.NS": {
+    "token": "2885",
+    "angel_symbol": "RELIANCE-EQ"
+  },
+  "TCS.NS": {
+    "token": "11536",
+    "angel_symbol": "TCS-EQ"
+  },
+  "HDFCBANK.NS": {
+    "token": "1333",
+    "angel_symbol": "HDFCBANK-EQ"
+  },
+  "INFY.NS": {
+    "token": "1594",
+    "angel_symbol": "INFY-EQ"
+  },
+  "ICICIBANK.NS": {
+    "token": "4963",
+    "angel_symbol": "ICICIBANK-EQ"
+  },
+  "HINDUNILVR.NS": {
+    "token": "1394",
+    "angel_symbol": "HINDUNILVR-EQ"
+  },
+  "ITC.NS": {
+    "token": "1660",
+    "angel_symbol": "ITC-EQ"
+  },
+  "SBIN.NS": {
+    "token": "3045",
+    "angel_symbol": "SBIN-EQ"
+  },
+  "BHARTIARTL.NS": {
+    "token": "10604",
+    "angel_symbol": "BHARTIARTL-EQ"
+  },
+  "KOTAKBANK.NS": {
+    "token": "1922",
+    "angel_symbol": "KOTAKBANK-EQ"
+  },
+  "LT.NS": {
+    "token": "11483",
+    "angel_symbol": "LT-EQ"
+  },
+  "AXISBANK.NS": {
+    "token": "5900",
+    "angel_symbol": "AXISBANK-EQ"
+  },
+  "MARUTI.NS": {
+    "token": "10999",
+    "angel_symbol": "MARUTI-EQ"
+  },
+  "TITAN.NS": {
+    "token": "3506",
+    "angel_symbol": "TITAN-EQ"
+  },
+  "SUNPHARMA.NS": {
+    "token": "3351",
+    "angel_symbol": "SUNPHARMA-EQ"
+  },
+  "ULTRACEMCO.NS": {
+    "token": "11532",
+    "angel_symbol": "ULTRACEMCO-EQ"
+  },
+  "BAJFINANCE.NS": {
+    "token": "317",
+    "angel_symbol": "BAJFINANCE-EQ"
+  },
+  "WIPRO.NS": {
+    "token": "3787",
+    "angel_symbol": "WIPRO-EQ"
+  },
+  "TATASTEEL.NS": {
+    "token": "3499",
+    "angel_symbol": "TATASTEEL-EQ"
+  },
+  "NTPC.NS": {
+    "token": "11630",
+    "angel_symbol": "NTPC-EQ"
+  },
+  "POWERGRID.NS": {
+    "token": "14977",
+    "angel_symbol": "POWERGRID-EQ"
+  },
+  "M&M.NS": {
+    "token": "2031",
+    "angel_symbol": "M&M-EQ"
+  },
+  "HCLTECH.NS": {
+    "token": "7229",
+    "angel_symbol": "HCLTECH-EQ"
+  },
+  "ONGC.NS": {
+    "token": "2475",
+    "angel_symbol": "ONGC-EQ"
+  },
+  "ADANIENT.NS": {
+    "token": "25",
+    "angel_symbol": "ADANIENT-EQ"
+  },
+  "ADANIPORTS.NS": {
+    "token": "15083",
+    "angel_symbol": "ADANIPORTS-EQ"
+  },
+  "COALINDIA.NS": {
+    "token": "20374",
+    "angel_symbol": "COALINDIA-EQ"
+  },
+  "BPCL.NS": {
+    "token": "526",
+    "angel_symbol": "BPCL-EQ"
+  },
+  "CIPLA.NS": {
+    "token": "694",
+    "angel_symbol": "CIPLA-EQ"
+  },
+  "EICHERMOT.NS": {
+    "token": "910",
+    "angel_symbol": "EICHERMOT-EQ"
+  },
+  "HEROMOTOCO.NS": {
+    "token": "1348",
+    "angel_symbol": "HEROMOTOCO-EQ"
+  },
+  "HINDALCO.NS": {
+    "token": "1363",
+    "angel_symbol": "HINDALCO-EQ"
+  },
+  "JSWSTEEL.NS": {
+    "token": "11723",
+    "angel_symbol": "JSWSTEEL-EQ"
+  },
+  "NESTLEIND.NS": {
+    "token": "17963",
+    "angel_symbol": "NESTLEIND-EQ"
+  },
+  "TECHM.NS": {
+    "token": "13538",
+    "angel_symbol": "TECHM-EQ"
+  },
+  "TORNTPHARM.NS": {
+    "token": "3518",
+    "angel_symbol": "TORNTPHARM-EQ"
+  },
+  "UPL.NS": {
+    "token": "11287",
+    "angel_symbol": "UPL-EQ"
+  },
+  "BAJAJ-AUTO.NS": {
+    "token": "16669",
+    "angel_symbol": "BAJAJ-AUTO-EQ"
+  },
+  "BAJAJFINSV.NS": {
+    "token": "16675",
+    "angel_symbol": "BAJAJFINSV-EQ"
+  },
+  "BEL.NS": {
+    "token": "383",
+    "angel_symbol": "BEL-EQ"
+  },
+  "BRITANNIA.NS": {
+    "token": "547",
+    "angel_symbol": "BRITANNIA-EQ"
+  },
+  "DIVISLAB.NS": {
+    "token": "10940",
+    "angel_symbol": "DIVISLAB-EQ"
+  },
+  "DRREDDY.NS": {
+    "token": "881",
+    "angel_symbol": "DRREDDY-EQ"
+  },
+  "GRASIM.NS": {
+    "token": "1232",
+    "angel_symbol": "GRASIM-EQ"
+  },
+  "INDUSINDBK.NS": {
+    "token": "5258",
+    "angel_symbol": "INDUSINDBK-EQ"
+  },
+  "IOC.NS": {
+    "token": "1624",
+    "angel_symbol": "IOC-EQ"
+  },
+  "SHRIRAMFIN.NS": {
+    "token": "4306",
+    "angel_symbol": "SHRIRAMFIN-EQ"
+  },
+  "TATACONSUM.NS": {
+    "token": "3432",
+    "angel_symbol": "TATACONSUM-EQ"
+  },
+  "TRENT.NS": {
+    "token": "1964",
+    "angel_symbol": "TRENT-EQ"
+  }
+}

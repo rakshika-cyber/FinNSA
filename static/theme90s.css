@@ -1,0 +1,87 @@
+/* 1990s terminal theme for the dashboard + datasets pages (loaded AFTER styles.css).
+   Same palette as stock.css: black screen, amber text, cyan labels, DOS-blue bars, double borders, CRT scanlines. */
+:root {
+    --bg-black: #000; --bg-terminal: #000; --bg-box: #000; --bg-header: #0000aa; --bg-input: #000; --bg-hover: #1a1200;
+    --border-color: #a06f00; --border-subtle: #a06f00;
+    --text-main: #ffb000; --text-muted: #a06f00; --text-dim: #00e5ff;
+    --matrix-green: #33ff33; --matrix-green-bg: rgba(51,255,51,.14);
+    --neon-red: #ff3b30; --neon-red-bg: rgba(255,59,48,.16);
+    --cyan-accent: #00e5ff; --amber-accent: #ffb000;
+    --dos-blue: #0000aa; --yellow: #ffff55;
+}
+body.terminal-body { font-size: 13px; color: #ffb000; text-shadow: 0 0 4px rgba(255,176,0,.35); }
+body.terminal-body::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 50;
+    background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 2px, rgba(0,0,0,.22) 3px);
+    box-shadow: inset 0 0 120px rgba(0,0,0,.6);
+}
+#ambientCanvas, .control-dot, .window-controls { display: none !important; }
+a { color: #00e5ff; }
+
+.terminal-window { max-width: 1500px; margin: 8px auto; border: 3px double #ffb000; border-radius: 0; box-shadow: none; overflow: visible; } /* visible: lets the sticky header stick */
+
+.window-titlebar { background: #0000aa; border-bottom: 2px solid #fff; padding: 3px 10px; }
+.window-title { font-family: "VT323", monospace; font-size: 22px; letter-spacing: 1px; color: #fff; }
+.title-prefix { color: #ffff55; }
+.window-status { color: #00e5ff; font-size: 12px; }
+.matrix-dot { border-radius: 0; }
+
+.terminal-topbar { background: #000; border-bottom: 1px solid #a06f00; }
+.topbar-prompt { color: #00e5ff; }
+.global-node .sym { color: #00e5ff; }
+
+.cli-header-panel { background: #000; border-bottom: 1px solid #a06f00; }
+.prompt-user { color: #33ff33; } .prompt-dir { color: #00e5ff; } .prompt-cmd { color: #ffff55; }
+.search-prompt-wrapper { border: 1px solid #ffb000; border-radius: 0; background: #000; }
+.search-prompt-tag { color: #00e5ff; }
+.cli-input { background: #000; color: #ffff55; border-radius: 0; font-family: inherit; }
+
+.sector-nav-label { color: #00e5ff; }
+.term-btn, .term-btn-xs { background: #000; color: #ffb000; border: 1px solid #ffb000; border-radius: 0; text-shadow: none; }
+.term-btn:hover, .term-btn-xs:hover { background: #ffb000; color: #000; }
+.term-btn.active { background: #ffb000; color: #000; border-color: #ffb000; font-weight: 800; }
+.window-status .term-btn-xs { color: #00e5ff; border-color: #00e5ff; }
+.window-status .term-btn-xs:hover { background: #00e5ff; color: #000; }
+
+.term-box { background: #000; border: 3px double #ffb000; border-radius: 0; }
+.box-titlebar { background: #0000aa; border-bottom: none; padding: 3px 8px; }
+.box-title { color: #fff; font-size: 13px; letter-spacing: .5px; }
+.stock-badge-tag { color: #00e5ff; background: none; border: none; }
+
+.term-table th { background: #000; color: #00e5ff; border-bottom: 1px solid #a06f00; font-size: 11px; }
+.term-table td { border-bottom: 1px solid rgba(160,111,0,.25); }
+.term-table tbody tr:hover { background: #1a1200; }
+.t-sym { color: #ffff55; }
+.t-name { color: #a06f00; }
+.t-sec { background: #000; color: #00e5ff; border: 1px solid #a06f00; border-radius: 0; }
+.t-badge { border-radius: 0; }
+
+.btn-trade-term { border-radius: 0; font-weight: 800; text-shadow: none; }
+.btn-trade-term.buy { background: #33ff33; color: #000; border-color: #33ff33; }
+.btn-trade-term.sell { background: #ff3b30; color: #000; border-color: #ff3b30; }
+
+.terminal-footer { background: #000; color: #a06f00; border-top: 1px solid #a06f00; }
+
+/* order modal */
+.modal-backdrop { background: rgba(0,0,0,.85); }
+.modal-term-box { background: #000; border: 3px double #ffb000; border-radius: 0; box-shadow: none; }
+.modal-title-bar { background: #0000aa; border-bottom: none; }
+.modal-title-txt { color: #fff; }
+.term-close-btn { color: #fff; }
+.order-tab { background: #000; color: #ffb000; border: 1px solid #ffb000; border-radius: 0; }
+.order-tab.buy.active { background: #33ff33; color: #000; border-color: #33ff33; }
+.order-tab.sell.active { background: #ff3b30; color: #000; border-color: #ff3b30; }
+.term-label, .info-lbl { color: #00e5ff; }
+.term-input { background: #000; color: #ffff55; border: 1px solid #ffb000; border-radius: 0; font-family: inherit; }
+.modal-summary-box { background: #000; border: 1px solid #a06f00; border-radius: 0; }
+.btn-execute-term { border-radius: 0; font-weight: 800; text-shadow: none; }
+.btn-execute-term.buy { background: #33ff33; color: #000; }
+.btn-execute-term.sell { background: #ff3b30; color: #000; }
+
+/* datasets page */
+.dataset-row { border-bottom: 1px solid rgba(160,111,0,.3); }
+.dataset-row:hover { background: #1a1200; }
+.dataset-idx { color: #ffff55; }
+.dataset-name { color: #ffff55; } .dataset-desc { color: #a06f00; }
+.dataset-link { color: #00e5ff; border-color: #00e5ff; border-radius: 0; }
+.dataset-link:hover { background: #00e5ff; color: #000; }

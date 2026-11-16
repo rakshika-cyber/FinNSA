@@ -1,0 +1,29 @@
+# Secrets - never commit. Each user connects their own broker account (header BROKER button, or .env).
+.env
+.env.*
+!.env.example
+
+# Logs: the SmartAPI library writes client code / API key / PIN into these
+logs/
+
+# Local state & generated caches
+*.db
+uploads/*
+!uploads/.gitkeep
+data/angelone_fno.json
+
+# Python / OS / editor
+venv/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.claude/settings.local.json
+
+# Extras
+*.log
+*.egg-info/
+.pytest_cache/
+.idea/
+.vscode/
+.ipynb_checkpoints/

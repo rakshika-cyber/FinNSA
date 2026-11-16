@@ -1,0 +1,14 @@
+{
+  "NIFTY50": {
+    "token": "99926000",
+    "exch_seg": "NSE"
+  },
+  "NIFTYBANK": {
+    "token": "99926009",
+    "exch_seg": "NSE"
+  },
+  "SENSEX": {
+    "token": "99919000",
+    "exch_seg": "BSE"
+  }
+}

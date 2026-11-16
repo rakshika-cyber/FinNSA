@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinNSA - Stock Detail</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/stock.css?v=3">
+    <link rel="stylesheet" href="/static/header.css?v=2">
+</head>
+<body>
+<div class="crt">
+    <div id="appHeader" data-page="stock"></div>
+
+    <div class="ticker-strip" id="strip">LOADING QUOTE...</div>
+
+    <section class="panel">
+        <h2>PRICE CHART <i>SRC: YAHOO DAILY · SMA/BOLLINGER CALC</i></h2>
+        <div class="expiry-tabs" id="rangeTabs"></div>
+        <div class="chart-wrap tall"><canvas id="chPrice"></canvas></div>
+        <div class="chart-wrap short"><canvas id="chVolume"></canvas></div>
+    </section>
+
+    <div class="row r2">
+        <section class="panel"><h2>RSI (14) <i>CALC</i></h2><div class="chart-wrap mid"><canvas id="chRsi"></canvas></div></section>
+        <section class="panel"><h2>MACD (12,26,9) <i>CALC</i></h2><div class="chart-wrap mid"><canvas id="chMacd"></canvas></div></section>
+    </div>
+
+    <div class="row r2">
+        <section class="panel"><h2>DAILY RETURNS DISTRIBUTION <i id="distNote">CALC</i></h2><div class="chart-wrap mid"><canvas id="chDist"></canvas></div></section>
+        <section class="panel"><h2>DRAWDOWN FROM PEAK (%) <i>CALC</i></h2><div class="chart-wrap mid"><canvas id="chDd"></canvas></div></section>
+    </div>
+
+    <div class="row r3">
+        <section class="panel"><h2>QUOTE &amp; STATISTICS <i>SRC: ANGEL ONE · YAHOO</i></h2><div id="statsBox" class="body wait">LOADING</div></section>
+        <section class="panel"><h2>NEWS SIGNAL <i>FinBERT · GOOGLE NEWS RSS</i></h2><div id="signalBox" class="body wait">SCORING</div></section>
+        <section class="panel"><h2>TECHNICALS <i>CALC: YAHOO DAILY/5M</i></h2><div id="techBox" class="body wait">LOADING</div></section>
+    </div>
+
+    <div class="row r3">
+        <section class="panel"><h2>MARKET DEPTH · BUY/SELL <i>SRC: NSE VIA ANGEL ONE</i></h2><div id="depthBox" class="body wait">LOADING</div></section>
+        <section class="panel"><h2>FUTURES <i>SRC: NFO VIA ANGEL ONE</i></h2><div id="futBox" class="body wait">LOADING</div></section>
+        <section class="panel"><h2>DERIVATIVES STATISTICS <i>CALC FROM OI/VOL</i></h2><div id="derivBox" class="body wait">LOADING</div></section>
+    </div>
+
+    <section class="panel">
+        <h2>OPTION CHAIN <i id="chainSrc">SRC: NFO VIA ANGEL ONE · IV/GREEKS CALC: BLACK-SCHOLES</i></h2>
+        <div class="expiry-tabs" id="expiryTabs"></div>
+        <div id="chainBox" class="body wait">LOADING (first load can take ~10s)</div>
+        <div id="chainNote" class="note"></div>
+    </section>
+
+    <div class="row r2">
+        <section class="panel"><h2>OPEN INTEREST BY STRIKE <i>SRC: NFO VIA ANGEL ONE</i></h2><div class="chart-wrap mid"><canvas id="chOi"></canvas></div></section>
+        <section class="panel"><h2>IMPLIED VOLATILITY SMILE <i>CALC: BLACK-SCHOLES</i></h2><div class="chart-wrap mid"><canvas id="chSmile"></canvas></div></section>
+    </div>
+
+    <div class="row r2">
+        <section class="panel"><h2>GREEKS · SELECTED STRIKE <i>CALC: BLACK-SCHOLES</i></h2><div id="greeksBox" class="body wait">CLICK A STRIKE ROW</div></section>
+        <section class="panel"><h2>HOLDINGS &amp; ANALYST VIEW <i>SRC: YAHOO FINANCE</i></h2><div id="holdBox" class="body wait">LOADING</div></section>
+    </div>
+
+    <section class="panel">
+        <h2>OFFICERS &amp; MANAGEMENT <i>SRC: YAHOO FINANCE</i></h2>
+        <div id="peopleBox" class="body wait">LOADING</div>
+    </section>
+
+    <section class="panel">
+        <h2>FUNDAMENTALS <i>SRC: YAHOO FINANCE (FILINGS-DERIVED)</i></h2>
+        <div id="fundBox" class="body wait">LOADING</div>
+    </section>
+
+    <section class="panel">
+        <h2>REVENUE &amp; NET INCOME · ANNUAL</h2>
+        <div id="chartBox" class="body wait">LOADING</div>
+    </section>
+
+    <section class="panel">
+        <h2>HEADLINES <i>GOOGLE NEWS RSS · FinBERT LABELS</i></h2>
+        <div id="newsBox" class="body wait">LOADING</div>
+    </section>
+
+    <div class="footer">DATA FOR INFORMATION ONLY · NOT INVESTMENT ADVICE · VERIFY AGAINST NSE/BSE FILINGS BEFORE ACTING</div>
+</div>
+<div id="orderModal" class="modal hidden">
+    <div class="modal-box">
+        <div class="titlebar"><span>ORDER TICKET ═ <b id="omTicker"></b></span><a href="#" id="omClose">[X]</a></div>
+        <div class="modal-body">
+            <div class="seg"><button id="omBuy" class="tab on">BUY</button><button id="omSell" class="tab">SELL</button>
+                <button id="omMkt" class="tab on">MARKET</button><button id="omLmt" class="tab">LIMIT</button></div>
+            <label>QUANTITY (shares)<input id="omQty" type="number" min="1" step="1" value="1"></label>
+            <label id="omPriceRow" class="hidden">LIMIT PRICE (₹)<input id="omPrice" type="number" min="0" step="0.05"></label>
+            <dl class="kv" id="omSummary"></dl>
+            <button id="omSubmit" class="btn-go buy">&gt;&gt; VALIDATE &amp; RECORD BUY ORDER &lt;&lt;</button>
+            <div id="omMsg" class="om-msg"></div>
+            <div class="note">NOT CONNECTED TO A BROKER. Orders are checked against the live price and recorded locally only; nothing is sent to the exchange.</div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="/static/chart-theme.js?v=1"></script>
+<script src="/static/keys.js?v=1"></script>
+<script src="/static/header.js?v=2"></script>
+<script src="/static/tour.js?v=3"></script>
+<script src="/static/stock.js?v=9"></script>
+</body>
+</html>
